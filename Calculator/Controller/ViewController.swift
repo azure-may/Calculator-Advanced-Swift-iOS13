@@ -11,21 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
-    
-    
+    private var calculatorBrain = CalculatorBrain()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
-        
-        //What should happen when a non-number button is pressed
-    
+        if let symbol = sender.currentTitle {
+            displayLabel.text = calculatorBrain.compute(symbol)
+        }
     }
 
     
     @IBAction func numButtonPressed(_ sender: UIButton) {
-        
-        //What should happen when a number is entered into the keypad
-    
+        if let value = sender.currentTitle {
+            displayLabel.text = calculatorBrain.updateDisplayValue(value)
+        }
     }
-
 }
-
